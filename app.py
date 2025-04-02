@@ -6,8 +6,8 @@ import os
 openai.api_key = ""  # OpenAI API 키 입력
 
 # 스타일 옵션을 위한 함수 (GPT-4 모델을 사용)
-def generate_diary_entry(keywords, text, style):
-    prompt = f"다음 내용을 바탕으로 {style} 스타일로 일기를 작성해주세요:\n"
+def generate_diary_entry(keywords, text):
+    prompt = f"다음 내용을 바탕으로 인스타 그램 게시글을 작성해주세요:\n"
     prompt += f"키워드: {', '.join(keywords)}\n"
     prompt += f"내용: {text}\n"
     
@@ -15,7 +15,7 @@ def generate_diary_entry(keywords, text, style):
     response = openai.ChatCompletion.create(
         model="gpt-4",  # 최신 GPT 모델
         messages=[{
-            "role": "system", "content": "You are a helpful assistant."
+            "role": "system", "content": "You are a helpful Instagram Post Assistant."
         }, {
             "role": "user", "content": prompt
         }],
@@ -23,10 +23,9 @@ def generate_diary_entry(keywords, text, style):
     )
     return response['choices'][0]['message']['content'].strip()
 
-# DALL·E API 호출하여 이미지 스타일 변환
 def generate_styled_image(keywords, style):
-    # DALL·E API를 사용하여 스타일 변경된 이미지를 생성
-    description = f"다음 키워드들을 바탕으로 {style} 스타일로 이미지를 생성해주세요: {', '.join(keywords)}"
+    description = f"""다음 키워드의 내용이 담긴 이미지를 {style} 스타일로 생성해주세요. 
+    키워드 : {', '.join(keywords)}"""
 
     response = openai.Image.create(
         prompt=description,
@@ -39,12 +38,12 @@ def generate_styled_image(keywords, style):
     return image_url
 
 # Streamlit 페이지 설정
-st.set_page_config(page_title="JJOBstagram", layout="wide")
+st.set_page_config(page_title="JJABstagram", layout="wide")
 
 # 제목 영역 꾸미기
 st.markdown("""
     <h1 style='text-align: center; font-size: 48px; margin-bottom: 20px; color: #786458;'>
-        📸 JJOB stagram 📸
+        📸 JJAB stagram 📸
     </h1>
     <hr style='border: 1px solid #a27652;'>
 """, unsafe_allow_html=True)
@@ -67,7 +66,9 @@ with col2:
     if st.button("🚀 일기 작성 및 스타일 이미지 생성"):
         if keywords and text:
             # 일기 작성
-            diary_entry = generate_diary_entry(keywords.split(','), text, style)
+
+            diary_entry = generate_diary_entry(keywords.split(','), text)
+
             st.subheader("✍️ 작성된 일기")
             st.write(diary_entry)
             
@@ -85,3 +86,4 @@ st.markdown("""
         Made with ❤️ by (주)studio-maengku<br>
     </p>
 """, unsafe_allow_html=True)
+
