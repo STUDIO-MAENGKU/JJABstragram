@@ -66,7 +66,9 @@ with col2:
     if st.button("🚀 일기 작성 및 스타일 이미지 생성"):
         if keywords and text:
             # 일기 작성
+
             diary_entry = generate_diary_entry(keywords.split(','), text)
+
             st.subheader("✍️ 작성된 일기")
             st.write(diary_entry)
             
@@ -84,3 +86,4 @@ st.markdown("""
         Made with ❤️ by (주)studio-maengku<br>
     </p>
 """, unsafe_allow_html=True)
+

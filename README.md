@@ -9,6 +9,6 @@
 > made by | studio-maengku
 ---
 
-### ✅ 요구사항 명새서
+### ✅ 요구사항 명세서
 
-![image](https://github.com/user-attachments/assets/5bad3575-348e-42db-839b-fd663cf2c832)
+![image](https://github.com/user-attachments/assets/1dee7d26-829c-45eb-a35e-9e231ffdcdd8)
