@@ -14,10 +14,11 @@ def generate_diary_entry(keywords, text, style):
     # GPT-4로 일기 작성
     response = openai.ChatCompletion.create(
         model="gpt-4",  # 최신 GPT 모델
-        messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": prompt}
-        ],
+        messages=[{
+            "role": "system", "content": "You are a helpful assistant."
+        }, {
+            "role": "user", "content": prompt
+        }],
         max_tokens=500
     )
     return response['choices'][0]['message']['content'].strip()
@@ -65,14 +66,17 @@ with col2:
     # 버튼 클릭 시 동작
     if st.button("🚀 일기 작성 및 스타일 이미지 생성"):
         if keywords and text:
-         # 일기 작성
-
-
-
-        # 스타일 이미지 생성
+            # 일기 작성
+            diary_entry = generate_diary_entry(keywords.split(','), text, style)
+            st.subheader("✍️ 작성된 일기")
+            st.write(diary_entry)
+            
+            # 스타일 이미지 생성
             styled_image_url = generate_styled_image(keywords.split(','), style)
-
-
+            st.subheader("🖼️ 스타일 변환된 이미지")
+            st.image(styled_image_url, caption=f"스타일: {style}", use_column_width=True)
+        else:
+            st.error("키워드와 내용을 모두 입력해 주세요!")
 
 # 아래에 간단한 푸터 추가
 st.markdown("""
@@ -80,5 +84,4 @@ st.markdown("""
     <p style='text-align: center; font-size: 14px; color: grey;'>
         Made with ❤️ by (주)studio-maengku<br>
     </p>
-
 """, unsafe_allow_html=True)
