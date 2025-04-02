@@ -56,22 +56,22 @@ with col1:
     keywords = st.text_input("키워드를 입력하세요 (쉼표로 구분)", "")
     text = st.text_area("내용을 작성하세요", height=200)
 
-
-# 스타일 선택 (세로로 아래에)
-st.markdown("---")
-st.subheader("🎨 스타일을 선택하세요")
-style_options = ["지브리", "이토 준지", "판타지", "호러", "로맨스"]
-style = st.selectbox("스타일을 선택하세요", style_options)
-
-# 버튼 클릭 시 동작
-if st.button("🚀 일기 작성 및 스타일 이미지 생성"):
-    if keywords and text:
-        # 일기 작성
+with col2:
+    st.markdown("---")
+    st.subheader("🎨 스타일을 선택하세요")
+    style_options = ["지브리", "이토 준지", "판타지", "호러", "로맨스"]
+    style = st.selectbox("스타일을 선택하세요", style_options)
+    
+    # 버튼 클릭 시 동작
+    if st.button("🚀 일기 작성 및 스타일 이미지 생성"):
+        if keywords and text:
+         # 일기 작성
 
 
 
         # 스타일 이미지 생성
-        styled_image_url = generate_styled_image(keywords.split(','), style)
+            styled_image_url = generate_styled_image(keywords.split(','), style)
+
 
 
 # 아래에 간단한 푸터 추가
@@ -82,4 +82,3 @@ st.markdown("""
     </p>
 
 """, unsafe_allow_html=True)
-
