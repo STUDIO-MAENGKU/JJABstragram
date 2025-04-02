@@ -56,6 +56,7 @@ with col1:
     keywords = st.text_input("키워드를 입력하세요 (쉼표로 구분)", "")
     text = st.text_area("내용을 작성하세요", height=200)
 
+
 # 스타일 선택 (세로로 아래에)
 st.markdown("---")
 st.subheader("🎨 스타일을 선택하세요")
@@ -66,16 +67,12 @@ style = st.selectbox("스타일을 선택하세요", style_options)
 if st.button("🚀 일기 작성 및 스타일 이미지 생성"):
     if keywords and text:
         # 일기 작성
-        diary_entry = generate_diary_entry(keywords.split(','), text, style)
-        st.subheader("📖 생성된 일기")
-        st.write(diary_entry)
+
+
 
         # 스타일 이미지 생성
         styled_image_url = generate_styled_image(keywords.split(','), style)
-        st.subheader(f"🖼️ {style} 스타일로 변환된 이미지")
-        st.image(styled_image_url, caption=f"{style} 스타일 이미지", use_column_width=True)
-    else:
-        st.error("⚠️ 모든 필드를 채워주세요!")
+
 
 # 아래에 간단한 푸터 추가
 st.markdown("""
@@ -83,4 +80,6 @@ st.markdown("""
     <p style='text-align: center; font-size: 14px; color: grey;'>
         Made with ❤️ by (주)studio-maengku<br>
     </p>
+
 """, unsafe_allow_html=True)
+
