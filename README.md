@@ -11,4 +11,4 @@
 
 ### ✅ 요구사항 명새서
 
-![image](https://github.com/user-attachments/assets/5bad3575-348e-42db-839b-fd663cf2c832)
+![image]()
