@@ -7,11 +7,11 @@ assignees: ''
 
 ---
 
-Bug Report Template 🐞
+### Bug Report Template 🐞
 Describe the Bug
 Provide a clear and concise description of the issue you're experiencing.
 
-Steps to Reproduce
+**Steps to Reproduce**
 Outline the steps to replicate the bug:
 
 Go to '...'
@@ -22,10 +22,10 @@ Scroll down to '...'
 
 Observe the error
 
-Expected Behavior
+**Expected Behavior**
 Describe what you expected to happen instead of the bug.
 
-Screenshots 📸
+**Screenshots 📸**
 If possible, attach screenshots to visually explain the problem.
 
 Desktop (please complete the following information):
@@ -44,7 +44,7 @@ Browser: [e.g., Safari, Chrome]
 
 Version: [e.g., 22]
 
-Additional Context 📝
+**Additional Context 📝**
 Include any other relevant details or context about the issue here (logs, settings, or special conditions).
 
 Let me know if you'd like a more customized version! 😊
